@@ -23,6 +23,7 @@ Concretely we can define the objectives as:
 
 
 ## Pipeline Overview
+![VS_Pipeline drawio](https://user-images.githubusercontent.com/5123355/146275950-0703131e-bdec-46f6-b064-a56a3f7b3044.png)
 
 
 
