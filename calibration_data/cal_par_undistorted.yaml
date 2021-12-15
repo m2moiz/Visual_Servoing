@@ -1,0 +1,20 @@
+image_width: 800
+image_height: 800
+camera_name: rrbot/camera1
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [477.0611347779899, 0, 399.5644809276932, 0, 477.0777256264221, 399.1264735032591, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.0002049116484936246, 0.0002990042785042359, -0.0001599412047101767, 3.651223333118963e-05, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [476.7351379394531, 0, 399.1141545266182, 0, 0, 476.6539916992188, 398.4143927415171, 0, 0, 0, 1, 0]
