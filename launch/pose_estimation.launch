@@ -1,0 +1,52 @@
+<launch>
+<!-- parameters
+        mode:="real"
+        mode:="sim" -->
+
+<!-- This launch file will run the pose estimation, Depending on the parameter specified in the command line when the launch file is executed,Pose estimation will either run in simulation mode or real mode -->
+  <arg name="mode" default='real'/>
+  <param name="mode" value="$(arg mode)"/>
+
+<!-- This is the real mode code block, here it will try to connect to a real camera  -->
+  <group if="$(eval mode == 'real')">
+    <arg name="yaml_file" default="$(find vs_project)/camera_real.yaml"/>
+    <arg name="camera" default="/camera/image_raw"/>  
+
+    <param name="yaml_file" value="$(arg yaml_file)"/>
+    <param name="camera" value="$(arg camera)"/>
+    <node pkg="vs_project" type="pose_estimator.py" name="estimate_pose" output="screen"></node>
+
+    <!-- <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+     <remap from="image" to="/camera/image_raw" />
+    </node> -->
+  </group>
+
+<!-- This is the sim mode code block, here it will run the gazebo sim and try to get pose from there -->
+  <group if="$(eval mode == 'sim')">
+    <arg name="yaml_file" default="$(find vs_project)/cal_par_undistorted.yaml"/>
+    <arg name="camera" default="/rrbot/camera1/image_raw"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find vs_project)/worlds/vs_world_obstacle.world"/>
+      <arg name="paused" value="false"/>
+      <arg name="use_sim_time" value="true"/>
+      <arg name="gui" value="true"/>
+      <arg name="headless" value="false"/>
+      <arg name="debug" value="false"/>
+    </include>
+
+    <param name="yaml_file" value="$(arg yaml_file)"/>
+    <param name="camera" value="$(arg camera)"/>
+    <node pkg="vs_project" type="pose_estimator.py" name="estimate_pose" output="screen"></node>
+  </group>
+
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/image_aruco_detected" />
+  </node>
+
+  <!-- <node pkg="vs_project" type="controller.py" name="controller" output="screen"></node> -->
+
+</launch>
+
+
+
