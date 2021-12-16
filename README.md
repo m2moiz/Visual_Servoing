@@ -14,6 +14,12 @@ https://user-images.githubusercontent.com/5123355/146295831-fde5bfc9-c9b4-4586-9
 
 
 
+
+https://user-images.githubusercontent.com/5123355/146300667-19c4360f-5a76-4025-8ec5-70c82d2cc407.mp4
+
+
+
+
 ## Problem Statement
 
 A camera is mounted onto the ceiling using which we can view the workspace below. We want to move the robot using only the camera feed as the sensory input. 
