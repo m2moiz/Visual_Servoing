@@ -2,6 +2,21 @@
 
 This repository contains the code for the final project of the visual servoing course
 
+
+https://user-images.githubusercontent.com/5123355/146294092-ef9497d3-2b20-4d84-a10a-c19e97768b6d.mp4
+
+
+
+https://user-images.githubusercontent.com/5123355/146295816-8162ddf2-aa26-4538-8beb-2ee574596611.mp4
+
+
+
+https://user-images.githubusercontent.com/5123355/146295831-fde5bfc9-c9b4-4586-93d9-c842f1041bcd.mp4
+
+
+
+
+
 ## Problem Statement
 
 A camera is mounted onto the ceiling using which we can view the workspace below. We want to move the robot using only the camera feed as the sensory input. 
