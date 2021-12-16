@@ -1,5 +1,7 @@
 # Visual Servoing Project
 
+
+
 This repository contains the code for the final project of the visual servoing course
 
 ## Problem Statement
@@ -58,6 +60,8 @@ To perform pose detection on a simulated enviroment, use the command
 To perform pose detection on the real robot, use the command
 
     roslaunch vs_project pose_estimation.launch mode:="real"
+    
+https://user-images.githubusercontent.com/5123355/146284752-77686ebb-26f3-43d0-b8ef-07dbe9895b7d.mp4
 
 ### Estimating the Goal Pose
 There are two approaches we can take to estimate the pose of the robot. The first one is to place a second marker in the goal position and extract the pose from it.
@@ -71,6 +75,7 @@ We use the second approach here, in our implementation.
 </p>
 
 The image on the left represents the image taken with the robot at the goal position, while the one on the right is the same image but with the pose detection run on it.
+
 
 #### Running the code:
 
@@ -86,6 +91,10 @@ In line **4** of the `goal_pose_estimation.launch`file is where we specify the p
 ## Occupancy Grid Generation
 
 ## Path Planning
+
+
+
+
 
 
 
