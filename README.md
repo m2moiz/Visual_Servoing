@@ -1,7 +1,5 @@
 # Visual Servoing Project
 
-
-
 This repository contains the code for the final project of the visual servoing course
 
 ## Problem Statement
@@ -60,8 +58,8 @@ To perform pose detection on a simulated enviroment, use the command
 To perform pose detection on the real robot, use the command
 
     roslaunch vs_project pose_estimation.launch mode:="real"
-    
-https://user-images.githubusercontent.com/5123355/146284752-77686ebb-26f3-43d0-b8ef-07dbe9895b7d.mp4
+
+
 
 ### Estimating the Goal Pose
 There are two approaches we can take to estimate the pose of the robot. The first one is to place a second marker in the goal position and extract the pose from it.
@@ -76,7 +74,6 @@ We use the second approach here, in our implementation.
 
 The image on the left represents the image taken with the robot at the goal position, while the one on the right is the same image but with the pose detection run on it.
 
-
 #### Running the code:
 
 To get the estimated goal pose, we run the following command
@@ -89,12 +86,28 @@ In line **4** of the `goal_pose_estimation.launch`file is where we specify the p
 ## Controller Implementation
 
 ## Occupancy Grid Generation
+While its easy for the robot to move to its destination when the workspace is clear, things become more complicated when there are obstacles involved.  To tackle this problem we make a special kind of map called the occupancy grid map. 
+The way it works is that the whole workspace is divided into square blocks, each block is then assigned a value of either 0 or 1 depending on whether there is an obstace or not. 0 corresponds to free space while 1 means occupied/obstacle.
+
+### Image Slicing
+Image slicing refers to dividing the workspace into multiple square blocks, the size of the blocks can be adjusted as needed. 
+
+<img src="https://user-images.githubusercontent.com/5123355/146286159-15ef1c31-44c9-4c61-a99d-b6fe3e0adefa.png" width="600">
+
+### Thresholding
+To detect the boxes which contain the obstacles we can use to our advantage that all of the obstacles are red. By thresholding the values hsv for this shade of red we can get the boxes containing the obstacles.
+
+![Thresholding](https://user-images.githubusercontent.com/5123355/146286716-bd71f1fd-eb04-409d-8ef2-01252df0dd7b.png)
+
+The black color here shows the absence of the color red (the obstacle) while the greenish yellow streaks represent the detected red color. The reason we are not getting the complete box is because the color red is not uniform on the obstacles. This may be due to the lighting conditions. 
+
+
+However this is not a concern and the thresholding works well enough to give an accurite binary occupancy grid map, As can be seen in the image below
+
+![segmentation](https://user-images.githubusercontent.com/5123355/146288572-0a823ffe-77e2-4fef-8b71-1b361f24eb5b.png)
+
 
 ## Path Planning
-
-
-
-
 
 
 
