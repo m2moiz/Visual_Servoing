@@ -26,6 +26,17 @@ Concretely we can define the objectives as:
 ![VS_Pipeline drawio](https://user-images.githubusercontent.com/5123355/146275950-0703131e-bdec-46f6-b064-a56a3f7b3044.png)
 
 ## Camera Calibration
+Camera calibration is the process of estimating intrinsic and/or extrinsic parameters. Intrinsic parameters deal with the camera's internal characteristics, such as, its focal length, skew, distortion, and image center. Extrinsic parameters describe its position and orientation in the world. This is the first step we need to perform before doing anything else.
+ROS provides a package called `camera_calibration` which provides us an easy way to determine the 11 camera parameters, which works in both simulations and for real cameras. 
+
+https://user-images.githubusercontent.com/5123355/146292617-82fc9390-a4c4-4a6f-84f5-2562a668b059.mp4
+
+#### Running the code:
+To start the camera calibration process we run the following line of code
+
+    roslaunch vs_project camera_calibration_undistorted.launch
+
+After running the program we get a zip file insilde which is a `.yaml` file which contains the calibrated camera parameters.
 
 ## Estimating the Pose
 
@@ -97,14 +108,31 @@ Image slicing refers to dividing the workspace into multiple square blocks, the 
 ### Thresholding
 To detect the boxes which contain the obstacles we can use to our advantage that all of the obstacles are red. By thresholding the values hsv for this shade of red we can get the boxes containing the obstacles.
 
-![Thresholding](https://user-images.githubusercontent.com/5123355/146286716-bd71f1fd-eb04-409d-8ef2-01252df0dd7b.png)
+In order to find the optimum threshold values in realtime, we made a tool using opencv and QT5. 
+
+To use it run the file `determine_threshold.py`
+
+https://user-images.githubusercontent.com/5123355/146290465-01a147b1-638d-4889-bcb7-9bf5a95d5df8.mp4
+
+Once the optimum threshold values have been determined we add them to our `grid_map.py`. The values need to be added to line **49** and **50** i.e 
+
+    lower = np.array([148,119,255])
+    upper = np.array([179,255,255])
+
+
+<img src="https://user-images.githubusercontent.com/5123355/146286716-bd71f1fd-eb04-409d-8ef2-01252df0dd7b.png " width="600">
 
 The black color here shows the absence of the color red (the obstacle) while the greenish yellow streaks represent the detected red color. The reason we are not getting the complete box is because the color red is not uniform on the obstacles. This may be due to the lighting conditions. 
 
 
 However this is not a concern and the thresholding works well enough to give an accurite binary occupancy grid map, As can be seen in the image below
 
-![segmentation](https://user-images.githubusercontent.com/5123355/146288572-0a823ffe-77e2-4fef-8b71-1b361f24eb5b.png)
+<img src="https://user-images.githubusercontent.com/5123355/146288572-0a823ffe-77e2-4fef-8b71-1b361f24eb5b.png" width="600">
+
+#### Running the code:
+To generate the occupancy grid map use the command
+
+    roslaunch vs_project grid_map.launch
 
 
 ## Path Planning
