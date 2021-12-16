@@ -2,6 +2,7 @@
 
 This repository contains the code for the final project of the visual servoing course
 
+
 https://user-images.githubusercontent.com/5123355/146294092-ef9497d3-2b20-4d84-a10a-c19e97768b6d.mp4
 
 
@@ -16,7 +17,6 @@ https://user-images.githubusercontent.com/5123355/146295831-fde5bfc9-c9b4-4586-9
 
 
 https://user-images.githubusercontent.com/5123355/146300667-19c4360f-5a76-4025-8ec5-70c82d2cc407.mp4
-
 
 
 
@@ -156,7 +156,25 @@ To generate the occupancy grid map use the command
 
 
 ## Path Planning
+Once the grid map has been generated we can then find the most efficient feasible path using a path planning algorithm. The algorithm chosen here is the A* algorithm. As an input we provide it the starting point, goal point and the grid map we generated and its will search for the most efficient path.
+
+<img src="https://user-images.githubusercontent.com/5123355/146304197-1a8c336b-36dc-482c-83f4-e7f793b9683b.png" width="600">
+
+The red blocks represent the starting and ending points while the green ones represent the path. 
+Once we identify which blocks make up the path we need to find the center point of those blocks
+
+<img src="https://user-images.githubusercontent.com/5123355/146304544-9c5fa7a0-fd0a-47be-affd-585cef4b3bf9.png" width="600">
+
+These center points serve as intermediate goal point that the robot goes through one at a time until it reaches the final red block.
+
 
 ## Bloopers
 
 https://user-images.githubusercontent.com/5123355/146297446-fdefb5e4-58bc-4c53-b79e-cd9d1a64e081.mp4
+
+
+
+
+
+
+
