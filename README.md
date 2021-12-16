@@ -60,6 +60,12 @@ Current Pose refers to the position and orientation of the robot within the curr
 
 The image on the left represents the image frame received from the camera while the image on the right shows the same frame with the detected pose being shown on top. The image frame above corresponds to the robots starting position in the workspace.
 
+
+
+https://user-images.githubusercontent.com/5123355/146293235-e178b173-0be1-44b4-94e3-5fd32f0689cd.mp4
+
+
+
 #### Running the code:
 
 To perform pose detection on a simulated enviroment, use the command
