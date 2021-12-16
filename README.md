@@ -2,7 +2,6 @@
 
 This repository contains the code for the final project of the visual servoing course
 
-
 https://user-images.githubusercontent.com/5123355/146294092-ef9497d3-2b20-4d84-a10a-c19e97768b6d.mp4
 
 
@@ -12,8 +11,6 @@ https://user-images.githubusercontent.com/5123355/146295816-8162ddf2-aa26-4538-8
 
 
 https://user-images.githubusercontent.com/5123355/146295831-fde5bfc9-c9b4-4586-93d9-c842f1041bcd.mp4
-
-
 
 
 
@@ -75,11 +72,7 @@ Current Pose refers to the position and orientation of the robot within the curr
 
 The image on the left represents the image frame received from the camera while the image on the right shows the same frame with the detected pose being shown on top. The image frame above corresponds to the robots starting position in the workspace.
 
-
-
 https://user-images.githubusercontent.com/5123355/146293235-e178b173-0be1-44b4-94e3-5fd32f0689cd.mp4
-
-
 
 #### Running the code:
 
@@ -158,9 +151,6 @@ To generate the occupancy grid map use the command
 
 ## Path Planning
 
+## Bloopers
 
-
-
-
-
-
+https://user-images.githubusercontent.com/5123355/146297446-fdefb5e4-58bc-4c53-b79e-cd9d1a64e081.mp4
